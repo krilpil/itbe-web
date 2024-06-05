@@ -31,12 +31,7 @@ export const STitleContainer = styled.div`
   margin-bottom: -16px;
   padding: 80px 16px;
 
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 70%,
-    rgb(255, 255, 255, 0.8) 75%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  //background: linear-gradient(180deg, rgb(255, 255, 255, 0.99) 70%, rgba(0, 0, 0, 0) 100%);
 `;
 
 export const SCategoryName = styled.p`
@@ -48,6 +43,7 @@ export const SBrandName = styled.p`
   font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
+  text-shadow: 0px 0px 8px white;
 `;
 
 export const SCarouselContainer = styled.div`
@@ -96,6 +92,8 @@ export const SImagesContainer = styled.div`
 
 export const SImage = styled(Image)`
   pointer-events: none;
+  object-position: center;
+  object-fit: cover;
 `;
 
 export const SDescriptionContainer = styled.div`

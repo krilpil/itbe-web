@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import { getPriceWithSpace } from '@/shared/lib';
 import { ArrowRightIcon, LikeIcon, SharedIcon } from '@/shared/assets';
@@ -20,11 +21,13 @@ import {
 } from './feed-card.styles';
 import { IFeedCard } from '../../model/feed-card.types';
 
-const FeedCard: FC<IFeedCard> = ({ images, price, brand, category }) => {
+const FeedCard: FC<IFeedCard> = ({ gallery, price, brand, category }) => {
   const convertedConst = getPriceWithSpace(price);
 
+  const { inView, ref } = useInView({});
+
   return (
-    <SFeedProduct>
+    <SFeedProduct ref={ref}>
       <STitleContainer>
         <SCategoryName>{category}</SCategoryName>
         <SBrandName>{brand}</SBrandName>
@@ -32,17 +35,9 @@ const FeedCard: FC<IFeedCard> = ({ images, price, brand, category }) => {
       <SContent>
         <SCarouselContainer>
           <SCarousel>
-            {images.map((src) => (
+            {gallery.map((src, index) => (
               <SImagesContainer key={src}>
-                <SImage
-                  fill
-                  src={src}
-                  alt={src}
-                  priority
-                  quality={1}
-                  objectFit={'cover'}
-                  objectPosition={'center'}
-                />
+                <SImage fill src={src} alt={src} priority={inView || index === 0} quality={50} />
               </SImagesContainer>
             ))}
           </SCarousel>

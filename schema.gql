@@ -1,0 +1,136 @@
+"""Exposes a URL that specifies the behavior of this scalar."""
+directive @specifiedBy(
+  """The URL that specifies the behavior of this scalar."""
+  url: String!
+) on SCALAR
+
+type BrandEntity {
+  brand: String!
+  lamodaId: [String!]!
+  rendezVousId: [String!]!
+  meetMarketId: [String!]!
+}
+
+type CategoryEntity {
+  sex: String!
+  section: String!
+  category: String!
+  subCategory: String!
+  lamodaId: [String!]!
+  lacosteId: [String!]!
+  rendezVousId: [String!]!
+  meetMarketId: [String!]!
+}
+
+input CreateProductInput {
+  store: String!
+  telegramUsersView: [String!] = []
+  rating: Float!
+  sizeSystem: String!
+  color: String!
+  gallery: [String!]
+  gender: String!
+  title: String!
+  url: String!
+  sizes: [String!]
+  brand: String!
+  category: String!
+  price: Float!
+  salePrice: Float!
+}
+
+input CreateTelegramUserInput {
+  userId: Float!
+  chatId: Float!
+  settingBrands: [String!]! = []
+  settingCategory: [String!]! = []
+  settingSex: [String!]! = []
+  settingInterval: Float! = 60
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  createProduct(createProduct: CreateProductInput!): ProductEntity!
+  updateProduct(updateProduct: UpdateProductInput!): ProductEntity!
+  removeProduct(id: Float!): Float!
+  removeOldProducts(updatedAt: DateTime!, store: String!): DateTime!
+  createTelegramUser(createTelegramUser: CreateTelegramUserInput!): TelegramUserEntity!
+  updateTelegramUser(updateTelegramUser: UpdateTelegramUserInput!): TelegramUserEntity!
+  removeTelegramUser(userId: Float!): Float!
+}
+
+type ProductEntity {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  store: String!
+  telegramUsersView: [String!]!
+  rating: Float!
+  sizeSystem: String!
+  color: String!
+  gallery: [String!]!
+  gender: String!
+  title: String!
+  url: String!
+  sizes: [String!]!
+  brand: String!
+  category: String!
+  price: Float!
+  salePrice: Float!
+}
+
+type Query {
+  getOneProduct(id: Float!): ProductEntity!
+  getProducts(page: Float!): [ProductEntity!]!
+  getAllProducts: [ProductEntity!]!
+  getMailingProduct(userId: Float!): ProductEntity
+  getFollowingProduct(userId: Float!): ProductEntity
+  getOneTelegramUser(userId: Float!): TelegramUserEntity!
+  getAllTelegramUsers: [TelegramUserEntity!]!
+  getAllBrands: [BrandEntity!]!
+  getAllCategory: [CategoryEntity!]!
+}
+
+type TelegramUserEntity {
+  userId: Float!
+  createdAt: DateTime!
+  lastPostAt: DateTime!
+  chatId: Float!
+  settingBrands: [String!]!
+  settingCategory: [String!]!
+  settingSex: [String!]!
+  settingInterval: Float!
+}
+
+input UpdateProductInput {
+  id: ID!
+  store: String
+  telegramUsersView: String
+  rating: Float
+  sizeSystem: String
+  color: String
+  gallery: [String!]
+  gender: String
+  title: String
+  url: String
+  sizes: [String!]
+  brand: String
+  category: String
+  price: Float
+  salePrice: Float
+}
+
+input UpdateTelegramUserInput {
+  userId: Float!
+  lastPostAt: DateTime
+  chatId: Float
+  settingBrands: [String!]
+  settingCategory: [String!]
+  settingSex: [String!]
+  settingInterval: Float
+}
+
