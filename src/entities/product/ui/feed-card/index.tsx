@@ -21,13 +21,11 @@ import {
 } from './feed-card.styles';
 import { IFeedCard } from '../../model/feed-card.types';
 
-const FeedCard: FC<IFeedCard> = ({ gallery, price, brand, category }) => {
+const FeedCard: FC<IFeedCard> = ({ gallery, price, brand, category, url }) => {
   const convertedConst = getPriceWithSpace(price);
 
-  const { inView, ref } = useInView({});
-
   return (
-    <SFeedProduct ref={ref}>
+    <SFeedProduct>
       <STitleContainer>
         <SCategoryName>{category}</SCategoryName>
         <SBrandName>{brand}</SBrandName>
@@ -37,13 +35,13 @@ const FeedCard: FC<IFeedCard> = ({ gallery, price, brand, category }) => {
           <SCarousel>
             {gallery.map((src, index) => (
               <SImagesContainer key={src}>
-                <SImage fill src={src} alt={src} priority={inView || index === 0} quality={50} />
+                <SImage fill src={src} alt={src} priority={index === 0} quality={50} />
               </SImagesContainer>
             ))}
           </SCarousel>
         </SCarouselContainer>
         <SActionContainer>
-          <ButtonIcon>
+          <ButtonIcon href={url} target={'_blank'}>
             <ArrowRightIcon size={'2xl'} />
             <span>Перейти</span>
           </ButtonIcon>

@@ -1,12 +1,12 @@
-import { infiniteQueryOptions, useInfiniteQuery, InfiniteData } from '@tanstack/react-query';
+import { infiniteQueryOptions, useInfiniteQuery } from '@tanstack/react-query';
 import { gql } from 'graphql-request';
 
 import { graphQLClient } from '@/shared/config';
 import { Query } from '@/shared/model/graphql';
 
-import { IGetProducts } from './getProducts.types';
+import { APIGetProducts, IGetProducts } from './getProducts.types';
 
-const getProductsQuery = async ({ page }: IGetProducts): Promise<Query['getProducts']> => {
+const getProductsQuery = async ({ page }: IGetProducts): Promise<APIGetProducts> => {
   const query: Pick<Query, 'getProducts'> = await graphQLClient.request(
     gql`
       query getProducts($page: Float!) {
@@ -15,6 +15,7 @@ const getProductsQuery = async ({ page }: IGetProducts): Promise<Query['getProdu
           category
           gallery
           price
+          url
         }
       }
     `,

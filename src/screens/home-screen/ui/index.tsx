@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { FeedCard, useGetProductsQuery } from '@/entities/product';
-import SkeletonFeedCard from '@/screens/home-screen/ui/skeleton-feed-card';
 
+import SkeletonFeedCard from './skeleton-feed-card';
 import { SHomeScreen } from './home-screen.styles';
 
 export function HomeScreen() {
@@ -22,10 +22,10 @@ export function HomeScreen() {
       {isSuccess && (
         <>
           {data.map((product, index) => (
-            <>
+            <Fragment key={product.url}>
               {data?.length === index + 1 && <div ref={lastElement.ref} />}
-              <FeedCard key={index} {...product} />
-            </>
+              <FeedCard {...product} />
+            </Fragment>
           ))}
         </>
       )}

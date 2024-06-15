@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 import { ButtonIcon } from '@/shared/components';
 import { BarsIcon, MagnifyingGlass } from '@/shared/assets';
-import { MainSearch } from '@/features/MainSearch';
-import { SideMenu } from '@/features/SideMenu';
+import { MainSearch } from '@/features/main-search';
+import { SideMenu } from '@/features/side-menu';
 
 import { SAppBar, SContainer, SLogotype } from './appbar.styles';
 

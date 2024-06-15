@@ -3,4 +3,5 @@ export interface IFeedCard {
   category: string;
   gallery: string[];
   price: number;
+  url: string;
 }

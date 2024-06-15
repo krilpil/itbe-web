@@ -17,6 +17,11 @@ const nextConfig = {
                 hostname: 'static.rendez-vous.ru',
                 port: '',
             },
+            {
+                protocol: 'https',
+                hostname: '*',
+                port: '',
+            },
         ],
     },
     async rewrites() {

@@ -8,7 +8,7 @@ export const SFeedProduct = styled.div`
   display: grid;
   grid-template-rows: 116px 1fr 120px;
   scroll-snap-align: start;
-  color: black;
+  color: #1a1a1a;
 `;
 
 export const SContent = styled.div`
@@ -43,7 +43,7 @@ export const SBrandName = styled.p`
   font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
-  text-shadow: 0px 0px 8px white;
+  text-shadow: 0 0 8px white;
 `;
 
 export const SCarouselContainer = styled.div`
