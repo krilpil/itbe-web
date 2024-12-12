@@ -2,27 +2,26 @@
 import React from 'react';
 
 import { HomeIcon, LikeIcon, ProfileIcon } from '@/shared/assets';
-import { ButtonIcon } from '@/shared/components';
 
-import { STabBar } from './tabbar.styles';
+import { STabBar, STabButton } from './tabbar.styles';
 
 const TabBar = () => {
   return (
     <STabBar>
-      <ButtonIcon>
+      <STabButton>
         <HomeIcon size={'xl'} />
         <span>Главная</span>
-      </ButtonIcon>
+      </STabButton>
 
-      <ButtonIcon>
+      <STabButton>
         <LikeIcon size={'xl'} />
         <span>Нравится</span>
-      </ButtonIcon>
+      </STabButton>
 
-      <ButtonIcon>
+      <STabButton>
         <ProfileIcon size={'xl'} />
         <span>Профиль</span>
-      </ButtonIcon>
+      </STabButton>
     </STabBar>
   );
 };

@@ -1,8 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 
-import { TanstackClient } from '@/app/(providers)/tanstack-client';
-
+import { TanstackClient } from './tanstack-client';
 import { AntDesignProvider } from './ant-design-provider';
 import { StyledComponentsProvider } from './styled-components';
 import { StyledComponentsRegistry } from './styled-components-registry';

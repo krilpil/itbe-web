@@ -9,6 +9,11 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
+                hostname: 'media.endclothing.com',
+                port: '',
+            },
+            {
+                protocol: 'https',
                 hostname: 'lacoste.ru',
                 port: '',
             },

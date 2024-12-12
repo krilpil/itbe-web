@@ -1,4 +1,4 @@
 export const siteConfig = {
-	name: "ITBE.STORE",
-	description: "itbe store",
+  name: 'ITBE.STORE',
+  description: 'itbe index',
 };
