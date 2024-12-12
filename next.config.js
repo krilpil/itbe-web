@@ -9,12 +9,22 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
+                hostname: 'media.endclothing.com',
+                port: '',
+            },
+            {
+                protocol: 'https',
                 hostname: 'lacoste.ru',
                 port: '',
             },
             {
                 protocol: 'https',
                 hostname: 'static.rendez-vous.ru',
+                port: '',
+            },
+            {
+                protocol: 'https',
+                hostname: '*',
                 port: '',
             },
         ],

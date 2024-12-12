@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { ButtonIcon } from '@/shared/components';
+
 export const STabBar = styled.div`
   z-index: 10;
   position: fixed;
@@ -12,4 +14,8 @@ export const STabBar = styled.div`
   -webkit-backdrop-filter: blur(4px);
   color: #121212;
   border-top: 1px solid rgb(0, 0, 0, 0.1);
+`;
+
+export const STabButton = styled(ButtonIcon)`
+  padding: 8px;
 `;
