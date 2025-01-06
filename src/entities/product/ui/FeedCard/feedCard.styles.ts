@@ -7,7 +7,7 @@ export const SFeedCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: end;
-  gap: 8px;
+  gap: 16px;
   font-size: 18px;
   font-weight: 400;
 `;

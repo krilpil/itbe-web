@@ -6,8 +6,8 @@ import Menu from './Menu/Menu';
 const Header = () => {
   return (
     <>
-      <BlackLine />
-      <Menu />
+      {/*<BlackLine />*/}
+      {/*<Menu />*/}
     </>
   );
 };

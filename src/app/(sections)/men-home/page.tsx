@@ -1,5 +1,5 @@
 'use server';
 
 export default async function Home() {
-  return <p>Home</p>;
+  return <p>Men Home</p>;
 }
