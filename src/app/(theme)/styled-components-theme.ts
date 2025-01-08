@@ -4,8 +4,8 @@ import { breakpoints } from '@/shared/config';
 
 const styledComponentsTheme: DefaultTheme = {
   colors: {
-    black: '#121212',
-    white: '#ffffff',
+    black: '#1a1a1a',
+    white: '#f1f1f1',
     gray: '#919191',
   },
   breakpoints: {
