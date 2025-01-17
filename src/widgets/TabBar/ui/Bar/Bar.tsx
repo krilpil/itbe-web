@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faHeart, faUser, faHouse, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { Segmented, SegmentedProps } from 'antd';
+import { SegmentedProps } from 'antd';
+
+import { useTabStore } from '@/entities/category';
 
 import { TabType } from '../../model/tabBarStore.types';
 import { useTabBarStore } from '../../lib/tabBar.store';
@@ -34,9 +35,9 @@ const closeCatalogOptions = defaultOptions.slice(0, 1).concat(
 
 const TabBar = () => {
   const { activeTab, setActiveTab } = useTabBarStore();
+  const { destroy } = useTabStore();
 
-  const [segmentedOptions, setSegmentedOptions] =
-    useState<SegmentedProps<TabType>['options']>(openCatalogOptions);
+  const [segmentedOptions, setSegmentedOptions] = useState<SegmentedProps<TabType>['options']>(openCatalogOptions);
   const [preventValue, setPreventValue] = useState<TabType>(null);
 
   const handleChangeSegmented: SegmentedProps<TabType>['onChange'] = (value) => {
@@ -50,6 +51,7 @@ const TabBar = () => {
 
     if (value === 'close_catalog') {
       setActiveTab(preventValue);
+      destroy();
     } else {
       setActiveTab(value);
     }
