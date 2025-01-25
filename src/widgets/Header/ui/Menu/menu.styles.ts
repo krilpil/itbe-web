@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Button } from 'antd';
 
 export const SMenu = styled.div`
   display: flex;
@@ -15,7 +16,14 @@ export const SNavigation = styled.nav`
 
   & > ul {
     display: flex;
+    gap: 16px;
+  }
+`;
+
+export const SButton = styled(Button).attrs({
+  type: 'text',
+})`
+  &.ant-btn {
     font-size: 18px;
-    gap: 32px;
   }
 `;

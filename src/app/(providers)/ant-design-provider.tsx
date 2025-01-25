@@ -17,9 +17,7 @@ export const AntDesignProvider: FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <ConfigProvider locale={ruRU} theme={antDesignTheme}>
-      <div style={{ visibility: !mounted ? 'hidden' : 'visible' }}>
-        {children}
-      </div>
+      <div style={{ visibility: !mounted ? 'hidden' : 'visible' }}>{children}</div>
     </ConfigProvider>
   );
 };

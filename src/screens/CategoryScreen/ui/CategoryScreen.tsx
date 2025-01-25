@@ -4,7 +4,7 @@ import React from 'react';
 
 import { FeedCard } from '@/entities/product';
 
-import { SBread, SFeed, SFeedScreen, STitle } from './feedScreen.styles';
+import { SBread, SFeed, SFeedScreen, STitle } from './categoryScreen.styles';
 
 const src1 =
   'https://media.endclothing.com/media/f_auto,q_auto:eco,w_768/prodmedia/media/catalog/' +
@@ -20,7 +20,7 @@ const src4 =
   'https://media.endclothing.com/media/f_auto,q_auto:eco,w_768/prodmedia/media/catalog/product/' +
   '0/7/07-11-24-AJ_FZ4238-001_m9_1.jpg';
 
-const FeedScreen = () => {
+const CategoryScreen = () => {
   return (
     <SFeedScreen>
       <section>
@@ -56,9 +56,37 @@ const FeedScreen = () => {
           imageSrc={src4}
           price={19000}
         />
+        <FeedCard
+          colors={['pink', 'black']}
+          brand={'Adidas'}
+          model={"END. x adidas Gazelle Indoor 'Laundromat'"}
+          imageSrc={src1}
+          price={11000}
+        />
+        <FeedCard
+          colors={['brown']}
+          brand={'Birkenstock'}
+          model={'Boston SFB'}
+          imageSrc={src2}
+          price={19000}
+        />
+        <FeedCard
+          colors={['black', 'red', 'white']}
+          brand={'Air Jordan'}
+          model={'4 Retro Sneaker'}
+          imageSrc={src3}
+          price={14900}
+        />
+        <FeedCard
+          colors={['grey']}
+          brand={'Nike'}
+          model={'Air Max SNDR Gore-Tex W Sneaker'}
+          imageSrc={src4}
+          price={19000}
+        />
       </SFeed>
     </SFeedScreen>
   );
 };
 
-export default FeedScreen;
+export default CategoryScreen;

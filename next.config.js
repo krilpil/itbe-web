@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    reactStrictMode: true,
+    compiler: {
+        styledComponents: true,
+    },
     images: {
         remotePatterns: [
             {
@@ -31,6 +35,10 @@ const nextConfig = {
     },
     async rewrites() {
         return [
+            {
+                source: '/',
+                destination: '/men'
+            },
             {
                 source: '/graphql',
                 destination: 'http://localhost:5500/graphql'

@@ -8,14 +8,14 @@ import { StyledComponentsRegistry } from './styled-components-registry';
 
 export function Providers({ children }: PropsWithChildren) {
   return (
-    <StyledComponentsProvider>
-      <AntDesignProvider>
-        <TanstackClient>
-          <AntdRegistry>
-            <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-          </AntdRegistry>
-        </TanstackClient>
-      </AntDesignProvider>
-    </StyledComponentsProvider>
+    <TanstackClient>
+      <StyledComponentsProvider>
+        <StyledComponentsRegistry>
+          <AntDesignProvider>
+            <AntdRegistry>{children}</AntdRegistry>
+          </AntDesignProvider>
+        </StyledComponentsRegistry>
+      </StyledComponentsProvider>
+    </TanstackClient>
   );
 }

@@ -6,11 +6,7 @@ import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 
 import { GlobalStyles } from '@/app/(theme)';
 
-export const StyledComponentsRegistry = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export const StyledComponentsRegistry = ({ children }: { children: React.ReactNode }) => {
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
 
   useServerInsertedHTML(() => {
