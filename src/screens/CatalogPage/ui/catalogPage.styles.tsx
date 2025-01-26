@@ -2,15 +2,6 @@ import styled from 'styled-components';
 import { Modal } from 'antd';
 import { motion } from 'framer-motion';
 
-export const SCatalog = styled(Modal).attrs({
-  width: '100%',
-  height: '100vh',
-  style: {
-    top: 0,
-    maxWidth: '100%',
-  },
-})``;
-
 export const SModal = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);

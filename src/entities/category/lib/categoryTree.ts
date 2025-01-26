@@ -1,4 +1,5 @@
 import { GenderType } from '@/entities/gender';
+import { getRouteLink } from '@/shared/router';
 
 import { IList } from '../model/list.types';
 import { ICategoryTree } from '../model/tree.types';
@@ -8,7 +9,7 @@ const categoryTree: ICategoryTree = {
   men: [
     {
       section_name: 'одежда',
-      section_id: 'clothing',
+      section_id: 'all_clothing',
       category: [
         {
           category_name: 'вся одежда',
@@ -62,7 +63,7 @@ const categoryTree: ICategoryTree = {
     },
     {
       section_name: 'обувь',
-      section_id: 'shoes',
+      section_id: 'all_shoes',
       category: [
         {
           category_name: 'вся обувь',
@@ -98,7 +99,7 @@ const categoryTree: ICategoryTree = {
     },
     {
       section_name: 'аксессуары',
-      section_id: 'accessories',
+      section_id: 'all_accessories',
       category: [
         {
           category_name: 'все аксессуары',
@@ -129,7 +130,7 @@ const categoryTree: ICategoryTree = {
     },
     {
       section_name: 'сумки',
-      section_id: 'bags',
+      section_id: 'all_bags',
       category: [
         {
           category_name: 'все сумки',
@@ -140,7 +141,7 @@ const categoryTree: ICategoryTree = {
     },
     {
       section_name: 'ювелирные изделия',
-      section_id: 'jewelry',
+      section_id: 'all_jewelry',
       category: [
         {
           category_name: 'все ювелирные изделия',
@@ -151,12 +152,12 @@ const categoryTree: ICategoryTree = {
     },
     {
       section_name: 'бренды',
-      section_id: 'brands',
+      section_id: 'all_brands',
       category: [],
     },
     {
       section_name: 'гайды',
-      section_id: 'guides',
+      section_id: 'all_guides',
       category: [],
     },
   ],
@@ -168,6 +169,7 @@ export const getSections = (gender: GenderType): IList[] =>
     name: section.section_name,
     id: section.section_id,
     tree: !!section.category.length,
+    href: getRouteLink({ gender, tab: 'category', category: section.section_id }),
   }));
 
 export const getCategories = (gender: GenderType, section: TabType): IList[] => {
@@ -178,6 +180,7 @@ export const getCategories = (gender: GenderType, section: TabType): IList[] => 
     name: category.category_name,
     id: category.category_id,
     tree: !!category.subcategory.length,
+    href: getRouteLink({ gender, tab: 'category', category: category.category_id }),
   }));
 };
 
@@ -192,5 +195,6 @@ export const getSubcategories = (gender: GenderType, section: TabType, category:
     name: subcategory.subcategory_name,
     id: subcategory.subcategory_id,
     tree: false,
+    href: getRouteLink({ gender, tab: 'category', category: subcategory.subcategory_id }),
   }));
 };

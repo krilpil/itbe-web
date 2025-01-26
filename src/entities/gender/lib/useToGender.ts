@@ -14,6 +14,6 @@ export const useToGender = (): IToGender => {
 
   return (gender) => {
     setGender(gender);
-    router.push(`/${gender}-home`);
+    router.push(`/${gender}`);
   };
 };

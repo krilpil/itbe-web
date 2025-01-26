@@ -3,6 +3,8 @@ import { create } from 'zustand';
 import { ITabStore } from '../model/tabStore.types';
 
 export const useTabStore = create<ITabStore>((set) => ({
+  isOpenCatalog: false,
+
   section: null,
   category: null,
   subcategory: null,

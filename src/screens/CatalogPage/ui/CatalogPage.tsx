@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { ModalProps } from 'antd';
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 import {
   CategoryList,
@@ -13,12 +13,12 @@ import {
 } from '@/entities/category';
 import { useGenderStore } from '@/entities/gender';
 
-import { useTabBarStore } from '../../lib/tabBar.store';
-import { SCatalog, SModal, SMotion } from './catalog.styles';
+import { SModal, SMotion } from './catalogPage.styles';
 
-const ModalRender: ModalProps['modalRender'] = () => {
+const CatalogPage = () => {
   const { gender } = useGenderStore();
-  const { section, category, subcategory, setSection, setCategory, setSubcategory } = useTabStore();
+  const { section, category, subcategory, setSection, setCategory, setSubcategory, destroy } = useTabStore();
+  const router = useRouter();
 
   const sectionsList = getSections(gender);
   const categoriesList = getCategories(gender, section);
@@ -26,6 +26,11 @@ const ModalRender: ModalProps['modalRender'] = () => {
 
   const keyCategory = 'category-' + section;
   const keySubcategory = 'subcategory-' + category;
+
+  const onSelect: CategoryListProps['onSelect'] = (href) => {
+    router.push(href);
+    destroy();
+  };
 
   const onEnterSection: CategoryListProps['onEnter'] = (id) => {
     setSection(id);
@@ -39,27 +44,28 @@ const ModalRender: ModalProps['modalRender'] = () => {
     setSubcategory(id);
   };
 
+  useEffect(() => {
+    return () => destroy();
+  }, []);
+
   return (
     <SModal>
-      <CategoryList activeId={section} list={sectionsList} onEnter={onEnterSection} />
+      <CategoryList activeId={section} list={sectionsList} onSelect={onSelect} onEnter={onEnterSection} />
 
       <SMotion key={keyCategory}>
-        <CategoryList activeId={category} list={categoriesList} onEnter={onEnterCategories} />
+        <CategoryList activeId={category} list={categoriesList} onSelect={onSelect} onEnter={onEnterCategories} />
       </SMotion>
 
       <SMotion key={keySubcategory}>
-        <CategoryList activeId={subcategory} list={subcategoriesList} onEnter={onEnterSubcategories} />
+        <CategoryList
+          activeId={subcategory}
+          list={subcategoriesList}
+          onSelect={onSelect}
+          onEnter={onEnterSubcategories}
+        />
       </SMotion>
     </SModal>
   );
 };
 
-const Catalog = () => {
-  const { activeTab } = useTabBarStore();
-
-  const isOpen = activeTab === 'open_catalog';
-
-  return <SCatalog open={isOpen} modalRender={ModalRender} />;
-};
-
-export default Catalog;
+export default CatalogPage;

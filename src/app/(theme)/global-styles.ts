@@ -1,7 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { config, dom } from '@fortawesome/fontawesome-svg-core';
-
-config.autoAddCss = false;
 
 export const GlobalStyles = createGlobalStyle`
     * {

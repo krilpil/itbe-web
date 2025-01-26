@@ -12,8 +12,6 @@ const GenderSwitch = () => {
   const isMenSelected = gender === 'men';
   const isWomenSelected = gender === 'women';
 
-  console.log(gender);
-
   return (
     <SGender>
       <li>

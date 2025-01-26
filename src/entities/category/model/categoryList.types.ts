@@ -5,6 +5,7 @@ export interface CategoryListProps {
   list: IList[];
   activeId: TabType;
   onEnter: (id: string) => void;
+  onSelect: (href: string) => void;
 }
 
 export interface SButtonProps {
